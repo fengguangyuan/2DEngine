@@ -1,0 +1,46 @@
+Lambert光照模型：L_diffuse = Kd*Global_ambient+Kd*LColor*max(dot(N,L),0)
+
+PHONE光照模型：L = Kl * LColor * power(dot(N,Out), n_s);
+	In+Out = 2*(N*dot(In,N))
+=>Out = 2*N*dot(In,N)-In
+Blinne光照模型：L=Kl*LColor*power(dot(N,H), n_s);
+	=>H=(L+V)/(|L|+|V|)
+
+结果：vertexColor = L_diffuse+L;
+glTexParameter*（）函数的参数
+参数(pname)	值(param)
+GL_TEXTURE_WRAP_S 
+从左至右纹理环绕模式 
+GL_TEXTURE_WRAP_T 
+从下至上纹理环绕模式 
+GL_TEXTURE_WRAP_R 
+从里至外纹理环绕模式	GL_CLAMP：截取 
+GL_REPEAT：重复 
+GL_MIRRORED_REPEAT:镜像重复 
+GL_CLAMP_TO_EDGE:忽略边框截取 
+GL_CLAMP_TO_BORDER:代边框的截取
+GL_TEXTURE_MAG_FILTER	GL_NEAREST或GL_LINEAR
+GL_TEXTURE_MIN_FILTER	GL_NEAREST 速度快，效果差 
+GL_LINEAR  计算量大。效果好 
+GL_NEAREST_MIPMAP_NEAREST 速度快，效果差 
+GL_LINEAR_MIPMAP_NEAREST 
+GL_NEAREST_MIPMAP_LINEAR 
+GL_LINEAR_MIPMAP_LINEAR 计算量大。效果好
+GL_TEXTURE_BORDER_COLOR						
+GL_TEXTURE_PRIORITY	(0，1)纹理优先级
+GL_TEXTURE_BASE_LEVEL	浮点值
+GL_TEXTURE_MAX_LEVEL	浮点值
+GL_TEXTURE_MIN_LOD	浮点值
+GL_TEXTURE_MAX_LEVEL	浮点值
+GL_TEXTURE_LOD_BIAS						
+GL_TEXTURE_COMPARE_MODE 
+纹理比较模式	GL_COMPARE_R_TO_TEXTURE 深度比较
+GL_DEPTH_TEXTURE_MODE	GL_RED:R 
+GL_LUMINANCE:亮度 
+GL_INSENSITY 
+GL_ALPHA:A
+GL_TEXTURE_COMPARE_FUNC 
+纹理比较方式	GL_LEQUAL,GL_GEQUAL,GL_LESS,GL_GREATER,GL_EQUAL, 
+GL_NOTEQUAL,GL_ALWAYS,GL_NEVER
+GL_GENERATE_MIAMAP 
+自动生成多重细节层	GL_TRUE,GL_FALSE
